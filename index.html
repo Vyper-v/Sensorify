@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kinematic App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <nav class="flex flex-wrap items-center justify-between">
+          <a href="/"><h1 class="heading">Kinematic App</h1></a>
+          <ul class="flex flex-wrap items-center">
+            <li class="portal"><a href="/results">Results</a></li>
+            <li class="portal"><a href="/charts">Charts</a></li>
+            <li class="portal">
+              <span class="dropdown" tabindex="0">
+                <span class="button ~neutral">
+                  <span>Sensor</span>
+                  <span class="ml-3 chev"></span>
+                </span>
+                <div class="dropdown-display space-y-2 group">
+                  <a href="/accelerometer" class="portal card ~neutral w-40"
+                    >Accelerometer</a
+                  >
+                  <a href="/gyroscope" class="portal card ~neutral w-40"
+                    >Gyroscope</a
+                  >
+                </div>
+              </span>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  </body>
+</html>

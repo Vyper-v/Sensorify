@@ -1,0 +1,20 @@
+{
+  "name": "kinematic-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.9.7"
+  },
+  "dependencies": {
+    "a17t": "^0.10.1",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.13",
+    "tailwindcss": "^3.0.24",
+    "vanilla-router": "^1.2.8"
+  }
+}
