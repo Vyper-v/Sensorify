@@ -5,29 +5,29 @@ import "./index.css";
 import hamburguer from "./hamburguer";
 
 const app = new App("#app");
+const acc = new Accelerometer({frequency: 60});
+const csv = new CSV(["X", "Y", "Z"]);
 
-const csv = new CSV(["position", "velocity", "acceleration"]);
+app.add("table",
+`<thead><tr>${csv.headers.map((h) => `<th>${h}</th>`).join("")}</tr></thead>
+<tbody></tbody>`, 
+{ className: "table", id: "table" });
 
-hamburguer(app);
 
-app.put(
-  "thead",
-  `<tr>${csv.headers.map((h) => `<th>${h}</th>`).join("")}</tr>`
-);
-
-const a = app.add("a", "Download");
 
 const handleClick = () => {
-  csv.addRow([Math.random(), Math.random(), Math.random()]);
+  acc.start();
+  
+  const rows = [acc.x, acc.y, acc.z];
+  csv.addRow(rows);
 
-  const csvHtml = `${csv.rows
-    .map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`)
-    .join("")}`;
+  const csvHtml = 
+  `${rows.map((c) => `<td>${c}</td>`).join("")}`;
 
-  app.put("tbody", csvHtml);
-  csv.toFile(a, "test.csv");
+  app.appendToChild("tbody","tr", csvHtml);
 };
 
-app.add("button", "add row", {
+app.add("button", "Get components", {
   onclick: handleClick,
+  className:("button")
 });

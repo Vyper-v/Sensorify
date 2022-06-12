@@ -1,13 +1,38 @@
+import Router from "vanilla-router";
+
+
 class App {
   
   constructor(id) {
     this.dom = document.querySelector(id);
+    this.router = new Router({
+      mode: 'hash',
+      page404: function (path) {
+          if(this.dom.hasChildNodes()) {
+            const children = this.dom.childNodes;
+            const childList = Array.from(children);
+            childList.forEach((child) => {
+              this.dom.removeChild(child);
+            });
+          }
+          this.add("h1", path+"404 - Page not found");
+      }
+  });
+
+  this.router.addUriListener();
+  
   }
 
   add(childTag, content = "", props) {
-    childNode = document.createElement(childTag);
-    this.dom.appendChild(childTag);
+    const childNode = document.createElement(childTag);
+    this.dom.appendChild(childNode);
     return this.put(childTag, content, props, { replace: true });
+  }
+
+  appendToChild(childTag, containerTag,content="") {
+    const fragment = document.createElement(containerTag);
+    fragment.innerHTML = content;
+    this.get(childTag).appendChild(fragment);
   }
 
   get(childTag) {

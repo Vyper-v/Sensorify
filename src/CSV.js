@@ -5,8 +5,12 @@ class CSV {
     this.rows = rows;
   }
 
+  getRow(index=0){
+    return this.rows[index]
+  }
+
   addRow(row) {
-    this.rows.push(row);
+    this.rows = [...this.rows,row]
   }
 
   removeRow(index) {
