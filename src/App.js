@@ -45,7 +45,7 @@ class App {
     if (props) {
       Object.keys(props).forEach((key) => {
         if (key === "className") {
-          childNode.classList.add(props[key]);
+          childNode.classList.add(...props[key]);
         } else if (key.startsWith("on")) {
           childNode.addEventListener(key.substring(2), props[key]);
         } else {
