@@ -1,7 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-#app {
-  @apply max-w-screen-lg px-6 py-4 mx-auto lg:mx-auto md:py-8;
-}

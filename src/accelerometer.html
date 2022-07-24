@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sensorify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="max-w-full overflow-x-hidden bg-inf">
+    <div class="max-w-full overflow-x-hidden bg-inf">
+      <header class="flex flex-wrap items-center justify-between">
+        <nav class="flex flex-wrap items-center justify-between">
+          <a href="index.html"><h1 class="heading">Sensorify</h1></a>
+          <div
+            class="flex-wrap flex-grow w-full max-w-full px-2 py-4 rounded-lg md:w-auto md:flex md:items-center md:justify-between bg-neutral-000 md:bg-transparent md:shadow-none md:p-0"
+          >
+            <ul class="flex flex-wrap items-center">
+              <li class="portal"><a href="results.html">Results</a></li>
+              <li class="portal">
+                <span class="dropdown" tabindex="0">
+                  <span class="button ~neutral">
+                    <span>Sensor</span>
+                    <span class="ml-3 chev"></span>
+                  </span>
+                  <div class="dropdown-display space-y-2 group">
+                    <a
+                      href="accelerometer.html"
+                      class="portal card ~neutral w-40"
+                      >Accelerometer</a
+                    >
+                  </div>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <h2>Accelerometer</h2>
+      <div
+        class="fixed w-screen bottom-0 flex justify-center flex-wrap gap-4 bg-neutral-300 py-4"
+      >
+        <button class="button ~info @high" id="start">start</button>
+        <button class="button ~critical @high" id="stop">stop</button>
+        <button class="button ~warning @high" id="save">save</button>
+        <button class="button ~urge @high" id="reset">reset</button>
+      </div>
+    </div>
+    <canvas id="myChart" width="100" height="100"></canvas>
+    <div id="localStorage"></div>
+    <script src="libraries/chart.js"></script>
+    <script src="libraries/luxon.js"></script>
+    <script src="libraries/luxon-adapter.js"></script>
+    <script src="libraries/chart-streaming.js"></script>
+    <script src="utils.js"></script>
+    <script src="charts.js"></script>
+    <script src="accelerometer.js"></script>
+  </body>
+</html>
