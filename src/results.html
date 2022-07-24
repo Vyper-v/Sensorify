@@ -9,32 +9,15 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="flex flex-wrap items-center justify-between">
+    <header>
       <nav class="flex flex-wrap items-center justify-between">
         <a href="index.html"><h1 class="heading">Sensorify</h1></a>
-        <div
-          class="flex-wrap flex-grow w-full max-w-full px-2 py-4 rounded-lg md:w-auto md:flex md:items-center md:justify-between bg-neutral-000 md:bg-transparent md:shadow-none md:p-0"
-        >
-          <ul class="flex flex-wrap items-center">
-            <li class="portal"><a href="results.html">Results</a></li>
-            <li class="portal">
-              <span class="dropdown" tabindex="0">
-                <span class="button ~neutral">
-                  <span>Sensor</span>
-                  <span class="ml-3 chev"></span>
-                </span>
-                <div class="dropdown-display space-y-2 group">
-                  <a href="accelerometer.html" class="portal card ~neutral w-40"
-                    >Accelerometer</a
-                  >
-                </div>
-              </span>
-            </li>
-          </ul>
-        </div>
+        <ul class="flex flex-wrap items-center">
+          <li class="portal"><a href="results.html">Results</a></li>
+          <li class="portal"><a href="accelerometer.html">Sensor</a></li>
+        </ul>
       </nav>
     </header>
-    <h1>Results</h1>
     <table id="accelerometer" class="table max-h-screen max-w-screen">
       <thead></thead>
       <tbody></tbody>
