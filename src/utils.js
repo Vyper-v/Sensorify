@@ -8,47 +8,41 @@ const buttonReset = $("#reset");
 const tbody = $("tbody");
 const thead = $("thead");
 
-const CSV = {
-  parse: (text) => {
+class CSV {
+  static parse(text) {
     const rows = text.trim().split("\n");
-
-    if (text.length === 0) {
-      return {
-        headers: [],
-        rows: [],
-      };
-    }
-    if (rows.length === 1) {
-      return {
-        headers: text.replace("\n", "").split(","),
-        rows: [],
-      };
-    }
-    if (rows.length > 1) {
-      const headers = rows.shift().split(",");
-      return { headers, rows: rows.map((v) => v.split(",")) };
-    }
+    const len = rows.length;
     return {
-      headers: text.split(","),
-      rows: [],
+      headers:
+        text.length == 0
+          ? []
+          : len == 1
+          ? text.replace("\n", "").split(",")
+          : len > 1
+          ? rows.shift().split(",")
+          : text.split(","),
+      rows: len > 1 ? rows.map((v) => v.split(",")) : [],
     };
-  },
-  stringify: ({ headers, rows }) => {
+  }
+
+  static stringify({ headers, rows }) {
     return (
       headers.join(",") +
       "\n" +
       rows.map((row) => row.join(",")).join("\n") +
       "\n"
     );
-  },
-};
+  }
+}
 
 if (localStorage.getItem("accelerometer" === null)) {
   localStorage.setItem("accelerometer", "X,Y,Z,timestamp\n");
 }
 
 function getAccelerationData() {
-  return CSV.parse(localStorage.getItem("accelerometer") || "X,Y,Z,timestamp\n");
+  return CSV.parse(
+    localStorage.getItem("accelerometer") || "X,Y,Z,timestamp\n"
+  );
 }
 function addAccelerationData(data) {
   const actualData = getAccelerationData();

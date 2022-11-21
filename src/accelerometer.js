@@ -30,9 +30,9 @@ const updateChartHandler = (e) => {
 
 const updateAccStore = (event) => {
   addAccelerationData([
-    event.accelerationIncludingGravity.x,
-    event.accelerationIncludingGravity.y,
-    event.accelerationIncludingGravity.z,
+    event.acceleration.x,
+    event.acceleration.y,
+    event.acceleration.z,
     Date.now() / 1000.0,
   ]);
 };
@@ -50,15 +50,14 @@ buttonStop.addEventListener("click", (e) => {
 
 function saveCSV(filename, data) {
   const blob = new Blob([data], { type: "text/csv" });
-  
-    const a = window.document.createElement("a");
-    a.href = window.URL.createObjectURL(blob);
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
 
+  const a = window.document.createElement("a");
+  a.href = window.URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
 
 buttonSave.addEventListener("click", (e) => {
   const actualData = getAccelerationData();
