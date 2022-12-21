@@ -9,19 +9,22 @@ const tbody = $("tbody");
 const thead = $("thead");
 const csv_separator = ",";
 const csv_headers = [
-  "ax",
-  "ay",
-  "az",
-  "agx",
-  "agy",
-  "agz",
-  "vx",
-  "vy",
-  "vz",
-  "x",
-  "y",
-  "z",
-  "timestamp\n",
+  "acceleracion_x(m/s^2)",
+  "acceleracion_y(m/s^2)",
+  "acceleracion_z(m/s^2)",
+  "acceleracion_gx(m/s^2)",
+  "acceleracion_gy(m/s^2)",
+  "acceleracion_gz(m/s^2)",
+  "alpha_z(°/s)",
+  "beta_x(°/s)",
+  "gamma_y(°/s)",
+  "velocidad_x(m/s)",
+  "velocidad_y(m/s)",
+  "velocidad_z(m/s)",
+  "x(m)",
+  "y(m)",
+  "z(m)",
+  "tiempo(s)\n",
 ].join(csv_separator);
 
 class CSV {
